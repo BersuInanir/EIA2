@@ -1,5 +1,5 @@
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener("DOMContentLoaded", function(){
     
     var name : string = prompt("Wie heißt du denn ? :)");
     var begrussung : string = "Herzlich Willkommen " ;
