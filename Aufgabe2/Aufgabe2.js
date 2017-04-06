@@ -7,6 +7,7 @@
 //    
 //    document.body.appendChild(table);
 //    };
+/// In Zusammenarbeit mit Lisa Würstle, Elyssia Dürr
 window.onload = function () {
     var rice = 1;
     var line = 0;
