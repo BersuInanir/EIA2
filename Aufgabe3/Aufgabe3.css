@@ -20,4 +20,15 @@ body {
 	background: black;
 	color: white;}
 	
+.selected {
+	background-color: gainsboro;
+}
+
+#field {
+	border: 2px solid darkred;
+	display: none;
+	position: absolute;
+	height: 100px;
+	width: 200px;
+}
 	

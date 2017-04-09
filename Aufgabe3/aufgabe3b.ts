@@ -31,6 +31,6 @@ window.onload = function (): void {
     
     document.getElementById("Kartenstapel").addEventListener("click", function() {
     if ( k > 0 && h < 5 ) {
-        let i : number = Math.floor((Math.random() * k) + 0); };
+        let i : number = Math.floor((Math.random() * k) + 0); } } 
    
     ;)}
