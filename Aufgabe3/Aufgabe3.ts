@@ -1,3 +1,18 @@
+/*
+Aufgabe: Aufgabe 3a
+Name: Bersu Inanir
+Matrikel: 254872
+Datum: 8. April 2017
+    
+Dieser "Code" wurde in Zusammenarbeit mit Lisa Würstle erstellt. 
+
+
+*/
+
+
+
+
+
 window.onload = function (): void {
  
     let rice: number = 1 ; 
