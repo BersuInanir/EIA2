@@ -24,11 +24,9 @@ body {
 	background-color: gainsboro;
 }
 
-#field {
-	border: 2px solid darkred;
-	display: none;
-	position: absolute;
-	height: 100px;
-	width: 200px;
+#move {position: absolute;
+		display: inline-block;
+		color: blue;
 }
+		
 	

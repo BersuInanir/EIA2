@@ -10,9 +10,11 @@ Dieser "Code" wurde in Zusammenarbeit mit Lisa Würstle erstellt.
 */
 
 
-
-
-
+namespace 3a {
+    let sum: num = 0;
+    let div: HTMLDivElement;
+    
+    
 window.onload = function (): void {
  
     let rice: number = 1 ; 
@@ -21,6 +23,11 @@ window.onload = function (): void {
    
     for (let i: number = 0; i < 64; i++) {
         let element: HTMLElement = document.createElement("div");
+        
+        if (i < 8) {
+            element.addEventListener("click", selectDiv);
+            }
+        
 
         if (((i + line) % 2) == 0) {
             element.className = "board white";
@@ -36,35 +43,27 @@ window.onload = function (): void {
         document.body.appendChild(element);
         }
    
+   div = document.createElement("div");
+    div.id = "move";
+    document.addEventListener("mousemove" , updateRice);
+    document.body.appendChild(div); 
     
+    };
     
-    
-    /// Aufgabe 3a //////////
-   let divs: NodeListOf<HTMLElement> = document.getElementsByTagName("div");
-    for (let i: number = 0; i < 9; i++) {
-        divs[i].addEventListener("click", handleEvent);
-        console.log(Math.pow(2, i).toString(16));
-    }
-
-
-    let selected: any;
-    function handleEvent(event: MouseEvent): void {
-        selected = <HTMLDivElement>event.target;
-        selected.classList.toggle("selected");
-        if (selected.length < 1) {
-            document.getElementById("field").style.display = "none";
+    function selectDiv(event: MouseEvent): void {
+        let clickeDiv: HTMLDivElement = <HTMLDivElement>event.target;
+        if (clickeDiv.classList.toggle ("selected")) {
+            sum += parseInt(clickedDiv.textContent);
             }
         else {
-            document.getElementById("field").style.display = "inline";
+            sum -= parseInt(clickedDiv.textContent);
             }
-        console.log(selected.textContent);
-    }
-
-    function moveDiv(event: MouseEvent): void {
-        let style: CSSStyleDeclaration = selected.style;
-        style.position = "absolute";
-        style.left = event.clientX.toString() + "px";
-        style.top = event.clientY.toString() + "px";
-    }
+             }
+    function updateRice(event: MouseEvent): void {
+        div.style.top = event.clientY + 10 + "px";
+        div.style.left = event.clientX + 10 + "px";
+        div.textContent = "Summe zur Basis 10 = " + sum + "Summe zur Basis 16 = " + sum.toString(16);
+        }
     };
-};
+    
+ 
