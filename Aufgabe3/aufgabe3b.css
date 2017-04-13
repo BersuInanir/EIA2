@@ -15,19 +15,6 @@ div {font-family: sans-serif;
 								width: 7em;
 								cursor: pointer;}
 
-								
-.Hand {border: 3px solid black;
-		border-radius: 10px;
-		height: 11em;
-		width: 8em;
-		margin-left: 2.5em;
-		margin-top: 2em;
-		cursor: pointer;
-		position: relative;
-		float: left;
-		font-size: 14pt;}	
-									
-#Kartenstapel {background-color: #87adff;}	
-#Ablage {background-color: #bcff87;}							
+						
 								
 								
