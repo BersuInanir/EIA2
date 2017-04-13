@@ -4,14 +4,10 @@ Name: Bersu Inanir
 Matrikel: 254872
 Datum: 8. April 2017
     
-Dieser "Code" wurde in Zusammenarbeit mit Lisa Würstle erstellt. 
-
-
+Dieser "Code" wurde in Zusammenarbeit mit Lisa Würstle erstellt.
 */
-
-
-namespace 3a_Schachbrett {
-    let sum: num = 0;
+namespace aufgabe3a {
+    let sum: number = 0;
     let div: HTMLDivElement;
 
 
@@ -52,8 +48,8 @@ namespace 3a_Schachbrett {
     };
 
     function selectDiv(event: MouseEvent): void {
-        let clickeDiv: HTMLDivElement = <HTMLDivElement>event.target;
-        if (clickeDiv.classList.toggle("selected")) {
+        let clickedDiv: HTMLDivElement = <HTMLDivElement>event.target;
+        if (clickedDiv.classList.toggle("selected")) {
             sum += parseInt(clickedDiv.textContent);
         }
         else {
@@ -66,6 +62,6 @@ namespace 3a_Schachbrett {
         div.style.left = event.clientX + 10 + "px";
         div.textContent = "Summe zur Basis 10 = " + sum + "Summe zur Basis 16 = " + sum.toString(16);
     }
-};
+}
 
 
