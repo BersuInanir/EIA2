@@ -11,11 +11,10 @@ namespace L4_Canvas {
         crc2 = canvas.getContext("2d");
         console.log(crc2);
         crc2.fillStyle = "#a3d7ff";
-        crc2.fillRect(0, 0, canvas.width, canvas.height);
-        crc2.fillRect(0, 220 , canvas.width, canvas.height);
+        crc2.fillRect(0, 0 , canvas.width, canvas.height);
         crc2.fillStyle = "#a6e775";
         crc2.fillRect (0, 200 , canvas.width, canvas.height) ;
-        crc2.moveTo(0, 230);
+        crc2.moveTo(0, 200);
         crc2.stroke();
         
         
@@ -26,29 +25,41 @@ namespace L4_Canvas {
         drawFelsenSpitze (105, 70, "#ffffff" , "white");
         drawBlume(200, 290, "#black", "#5e4781");
         drawBlume (80, 250, "#black", "#b4232c"); 
-        drawBlume (120, 200, "black", "yellow");
+        drawBlume1 (150, 240, "#black", "SeaGreen");
+        drawBlume1 (120, 200, "black", "yellow");
         drawTulpe (320, 220, "black", "black");
-       // drawBlumi (200, 290, "black", "#f08ecb");
-     //   drawBlumi (80, 250, "black", "#a27477");
         drawBaum (0, 0,  "#8b520d", "#8b520d") ;
         drawBaumKlein (0, 0,  "#8b520d", "#8b520d");
-        drawPflanze (230, 170, "#8ff55c", "#8ff55c" );
+        drawPflanze (370, 250, "#8ff55c", "#8ff55c" );
+        zufallPosition ();
            
 
     }
-    
+        
+        // Gibt eine Zufallszahl zwischen min (inklusive) und max (exklusive) zurück
+        // Die Verwendung von Math.round() erzeugt keine gleichmäßige Verteilung!
+        //function getRandomInt(min, max) {
+        //min = Math.ceil(min);
+       //max = Math.floor(max);
+       //return Math.floor(Math.random() * (max - min)) + min;
+      
     
         function zufallPosition (): void {
-            for (let i: number = 0; i < 14; i++) {
-                let minWidth: number = 20; // In welchem Bereich die Blumen positioniert werden sollen
-                let minHeight: number = 220;
-                let maxWidth: number = 500;
-                let maxHeight: number = 330; 
-                let BlumenFeld: number = Math.floor((Math.random() * 3) + 0);
-                let x: number = ;
-                let y: number = ;
+            for (var i: number = 0; i < 12; i++) {
+            var minWidth: number = 30;
+            var minHeight: number = 200; 
+            var maxWidth: number = 400;
+            var maxHeight: number = 300;
+            var n: number = Math.floor((Math.random() * 2) + 0);
+            var randomXPosition: number = Math.floor(Math.random() * (maxWidth - minWidth + 0) + minWidth);
+            var randomYPosition: number = Math.floor(Math.random() * (maxHeight - minHeight + 0) + minHeight);
+            
+            drawBlume(randomXPosition, randomYPosition);
             }
-            };
+        }
+    }
+   
+       
                 
 
     
@@ -62,7 +73,7 @@ namespace L4_Canvas {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();       
-}
+        }
     
     
       function drawWolke(_x: number, _y: number, _strokeColor: string, _fillColor: string): void { 
@@ -159,23 +170,48 @@ namespace L4_Canvas {
         crc2.arc(_x + 8 , _y + 0, 6, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
-        crc2.stroke();
-        
-       
-        
+        crc2.stroke();    
     }
     
-    /*
     
-        function drawBlumi(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {    
+        function drawBlume1(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        
+        crc2.beginPath();
+        crc2.fillStyle = "#19760c";
+        crc2.fillRect (_x + 5, _y + 15, 3, 25) ;
+        crc2.arc(_x + 4, _y + 20 , 12, 0, 1.5);
+        crc2.fill();
+        
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
-        crc2.strokeStyle = _strokeColor;
+        crc2.strokeStyle = "white";
+        crc2.lineWidth = 1;
+        crc2.arc(_x - 3, _y + 0 , 9, 0, 2 * Math.PI);
+        crc2.fill();
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.arc(_x + 8, _y - 12 , 9, 0, 2 * Math.PI);
+        crc2.fill();
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.arc(_x + 19, _y - 1 , 9, 0, 2 * Math.PI);
+        crc2.fill();
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.arc(_x + 8, _y + 10 , 9, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.fillStyle = "#f5ee5c";
         crc2.arc(_x + 8 , _y + 0, 6, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
-        crc2.stroke();       
-}   */
+        crc2.stroke();
+           }
        
         function drawTulpe(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         
@@ -255,7 +291,6 @@ namespace L4_Canvas {
         crc2.closePath();
         crc2.fill ();
         crc2.stroke ();
-
     }
     
         function drawBaumKlein(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {    
@@ -281,7 +316,8 @@ namespace L4_Canvas {
         crc2.arc (_x + 377 , _y + 157, 15, 0, 2 * Math.PI);    
         crc2.closePath();
         crc2.fill ();
-        crc2.stroke ();
-
-    }
-    }
+        crc2.stroke (); 
+        }
+ }
+    
+    
