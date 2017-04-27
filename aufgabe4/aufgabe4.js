@@ -28,7 +28,7 @@ var L4_Canvas;
         drawBaum(0, 0, "#8b520d", "#8b520d");
         drawBaumKlein(0, 0, "#8b520d", "#8b520d");
         drawPflanze(370, 250, "#8ff55c", "#8ff55c");
-        //zufallPosition ();
+        zufallPosition();
     }
     // Gibt eine Zufallszahl zwischen min (inklusive) und max (exklusive) zurück
     // Die Verwendung von Math.round() erzeugt keine gleichmäßige Verteilung!
@@ -36,25 +36,18 @@ var L4_Canvas;
     //min = Math.ceil(min);
     //max = Math.floor(max);
     //return Math.floor(Math.random() * (max - min)) + min;
-    /*
-        function zufallPosition (): void {
-            for (var i: number = 0; i < 12; z++) {
-            var minWidth: number = 50;
-            var minHeight: number = 150;
-            var maxWidth: number = 400;
-            var maxHeight: number = 220;
+    function zufallPosition() {
+        for (var i = 0; i < 10; i++) {
+            var minWidth = 30;
+            var minHeight = 200;
+            var maxWidth = 350;
+            var maxHeight = 300;
             var n = Math.floor((Math.random() * 2) + 0);
             var randomXPosition = Math.floor(Math.random() * (maxWidth - minWidth + 0) + minWidth);
             var randomYPosition = Math.floor(Math.random() * (maxHeight - minHeight + 0) + minHeight);
-            if (n == 0) {
-                drawFlowerOne(randomXPosition, randomYPosition, "#800080");
-            }
-            else {
-                drawFlowerTwo(randomXPosition, randomYPosition, 10, "#DC143C");
-            }
+            drawBlume(randomXPosition, randomYPosition, "#black", "#b4232c");
         }
     }
-    */
     function drawSonne(_x, _y, _strokeColor, _fillColor) {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
