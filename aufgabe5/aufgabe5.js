@@ -1,7 +1,6 @@
 /*
 Aufgabe: Nr. 5
 Name: Bersu Inanir
-Matrikel: 254072
 Datum: 30.04.2017
 In Zusammenarbeit mit Lisa Würstle */
 var L5_Bienen;
