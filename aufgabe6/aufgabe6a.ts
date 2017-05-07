@@ -58,17 +58,18 @@ namespace L6_Interface {
             b.x = 480; //x-Koordinate Bienenkorböffnung
             b.y = 190; //y-Koordinate Bienenkorböffnung
             b.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
-            b.size = Math.random() * 4 + 2;
+            b.size = Math.random() * 7 + 5;
             bienen[i] = b;
 
         }
         canvas.addEventListener("click", addBee);
 
         //setTimeOut
-        window.setTimeout(animate, 30);
+        window.setTimeout(animate, 20);
     }
 
     //Aufgabe 5 Animation 
+    //Aufgabe 6 Interface
 
     function animate(): void {
         crc2.putImageData(imageData, 0, 0);
@@ -88,12 +89,12 @@ namespace L6_Interface {
             drawBiene(b);
 
         }
-        window.setTimeout(animate, 30);
+        window.setTimeout(animate, 20);
     }
 
-
+    
     function addBee(): void {
-        bienen.push({ x: 480, y: 190, color: "hsl(" + Math.random() * 360 + ", 100%, 50%)", size: Math.random() * 4 + 2 });
+        bienen.push({ x: 480, y: 190, color: "hsl(" + Math.random() * 360 + ", 100%, 50%)", size: Math.random() * 7 + 5 });
         n++;
         console.log("added Bee");
     }
@@ -388,32 +389,27 @@ namespace L6_Interface {
         crc2.fill();
     }
 
+    
+     ////// Aufgabe 6  ///////
     function drawBiene(_b: Biene): void {
         crc2.beginPath();
-        crc2.fillStyle = _b.color;
-        crc2.strokeStyle = "yellow";
-        crc2.arc(_b.x + 0, _b.y + 0, 7, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.arc(_b.x - 7, _b.y + 0, 4, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.fillStyle = "yellow";
-        crc2.strokeStyle = "yellor";
         crc2.lineWidth = 2;
-        crc2.moveTo(_b.x + 1, _b.y - 5);
-        crc2.lineTo(_b.x + 0, _b.y + 7);
+        crc2.fillStyle = _b.color;
+        crc2.strokeStyle = "black";
+        crc2.arc(_b.x, _b.y, _b.size, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
+        crc2.beginPath();
+        crc2.arc(_b.x - 10, _b.y, _b.size, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        
         crc2.beginPath();
         crc2.fillStyle = "white";
         crc2.strokeStyle = "black";
-        crc2.arc(_b.x + 3, _b.y - 14, 8, 0, 2);
+        crc2.arc(_b.x + 3, _b.y - 14, _b.size, 0, 2);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
