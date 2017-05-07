@@ -40,7 +40,7 @@ namespace StudiVZ {
 
     function saveData(_input: string): string {
         let datenArray: string[] = _input.split(",");
-        let s: StudentData = {
+        let s: StudentData = {                          //Array erstellen
             matrikelnummer: parseInt(datenArray[0]),
             name: datenArray[1],
             vorname: datenArray[2],
