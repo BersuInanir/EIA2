@@ -29,10 +29,11 @@ namespace L5_Bienen {
         crc2.fillRect(0, 200, canvas.width, canvas.height);
         crc2.moveTo(0, 200);
         crc2.stroke();
+        
 
         function copyCanvas(): void {
-            let imgData: any = crc2.getImageData(0, 0, 550, 350);
-            crc2.putImageData(imgData, 550, 350);
+            let imageData: any = crc2.getImageData(0, 0, 550, 350);
+            crc2.putImageData(imageData, 550, 350);
         }
 
 
@@ -86,8 +87,9 @@ namespace L5_Bienen {
                 y[i] = 0;
             }
             drawBiene(x[i], y[i]); 
-            window.setTimeout(animate, 40);
+            
         }
+        window.setTimeout(animate, 40);
     }
 
 

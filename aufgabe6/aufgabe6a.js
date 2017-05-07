@@ -1,16 +1,10 @@
-/*
-Aufgabe: Nr. 5
-Name: Bersu Inanir
-Datum: 30.04.2017
-In Zusammenarbeit mit Lisa Würstle */
-var L5_Bienen;
-(function (L5_Bienen) {
-    window.addEventListener("load", init);
+var L6_Interface;
+(function (L6_Interface) {
     var crc2;
-    var imageData;
-    var x = [];
-    var y = [];
+    var imageData = ImageData;
+    var bienen = [];
     var n = 10;
+    window.addEventListener("load", init);
     function init(_event) {
         console.log("Hallo");
         var canvas;
@@ -24,10 +18,6 @@ var L5_Bienen;
         crc2.fillRect(0, 200, canvas.width, canvas.height);
         crc2.moveTo(0, 200);
         crc2.stroke();
-        function copyCanvas() {
-            var imageData = crc2.getImageData(0, 0, 550, 350);
-            crc2.putImageData(imageData, 550, 350);
-        }
         // Funktionsabläufe 
         drawSonne(10, 100, "#fef965", "#fcd93e");
         drawWolke(250, 60, "#ffffff", "white");
@@ -44,47 +34,44 @@ var L5_Bienen;
         drawPflanze(370, 250, "#8ff55c", "#8ff55c");
         zufallPosition();
         drawKorb(400, 290);
-        drawBiene(400, 300);
         imageData = crc2.getImageData(0, 0, canvas.width, canvas.height); //Speichern des Canvas als Bild
         for (var i = 0; i < n; i++) {
-            x[i] = 480; //x-Koordinate Bienenkorböffnung
-            y[i] = 190; //y-Koordinate Bienenkorböffnung
+            var b = { x: 0, y: 0, color: "", size: 0 };
+            b.x = 480; //x-Koordinate Bienenkorböffnung
+            b.y = 190; //y-Koordinate Bienenkorböffnung
+            b.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            b.size = Math.random() * 4 + 2;
+            bienen[i] = b;
         }
         canvas.addEventListener("click", addBee);
         //setTimeOut
-        window.setTimeout(animate, 40);
+        window.setTimeout(animate, 30);
     }
     //Aufgabe 5 Animation 
     function animate() {
         crc2.putImageData(imageData, 0, 0);
         for (var i = 0; i < n; i++) {
-            x[i] += Math.random() * 4 - 2.1;
-            y[i] += Math.random() * 7 - 3.5;
-            if (x[i] < 0) {
-                x[i] = crc2.canvas.width;
+            var b = bienen[i];
+            b.x += Math.random() * 4 - 2.1;
+            b.y += Math.random() * 7 - 3.5;
+            if (b.x < 0) {
+                b.x = crc2.canvas.width;
             }
-            if (y[i] < 0) {
-                y[i] = crc2.canvas.height;
+            if (b.y < 0) {
+                b.y = crc2.canvas.height;
             }
-            if (y[i] >= crc2.canvas.height) {
-                y[i] = 0;
+            if (b.y >= crc2.canvas.height) {
+                b.y = 0;
             }
-            drawBiene(x[i], y[i]);
+            drawBiene(b);
         }
-        window.setTimeout(animate, 40);
+        window.setTimeout(animate, 30);
     }
     function addBee() {
-        x.push(480);
-        y.push(190);
+        bienen.push({ x: 480, y: 190, color: "hsl(" + Math.random() * 360 + ", 100%, 50%)", size: Math.random() * 4 + 2 });
         n++;
         console.log("added Bee");
     }
-    // Gibt eine Zufallszahl zwischen min (inklusive) und max (exklusive) zurück
-    // Die Verwendung von Math.round() erzeugt keine gleichmäßige Verteilung!
-    //function getRandomInt(min, max) {
-    //min = Math.ceil(min);
-    //max = Math.floor(max);
-    //return Math.floor(Math.random() * (max - min)) + min;
     function zufallPosition() {
         for (var i = 0; i < 7; i++) {
             var minWidth = 30;
@@ -343,16 +330,16 @@ var L5_Bienen;
         crc2.closePath();
         crc2.fill();
     }
-    function drawBiene(_x, _y) {
+    function drawBiene(_b) {
         crc2.beginPath();
-        crc2.fillStyle = "black";
+        crc2.fillStyle = _b.color;
         crc2.strokeStyle = "yellow";
-        crc2.arc(_x + 0, _y + 0, 7, 0, 2 * Math.PI);
+        crc2.arc(_b.x + 0, _b.y + 0, 7, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
         crc2.beginPath();
-        crc2.arc(_x - 7, _y + 0, 4, 0, 2 * Math.PI);
+        crc2.arc(_b.x - 7, _b.y + 0, 4, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
@@ -360,18 +347,18 @@ var L5_Bienen;
         crc2.fillStyle = "yellow";
         crc2.strokeStyle = "yellor";
         crc2.lineWidth = 2;
-        crc2.moveTo(_x + 1, _y - 5);
-        crc2.lineTo(_x + 0, _y + 7);
+        crc2.moveTo(_b.x + 1, _b.y - 5);
+        crc2.lineTo(_b.x + 0, _b.y + 7);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
         crc2.beginPath();
         crc2.fillStyle = "white";
         crc2.strokeStyle = "black";
-        crc2.arc(_x + 3, _y - 14, 8, 0, 2);
+        crc2.arc(_b.x + 3, _b.y - 14, 8, 0, 2);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
     }
-})(L5_Bienen || (L5_Bienen = {}));
-//# sourceMappingURL=aufgabe5.js.map
+})(L6_Interface || (L6_Interface = {}));
+//# sourceMappingURL=aufgabe6a.js.map

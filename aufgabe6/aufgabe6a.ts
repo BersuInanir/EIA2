@@ -1,21 +1,26 @@
-/*
-Aufgabe: Nr. 5
-Name: Bersu Inanir
-Datum: 30.04.2017
-In Zusammenarbeit mit Lisa Würstle */
-var L5_Bienen;
-(function (L5_Bienen) {
+namespace L6_Interface {
+
+    interface Biene {
+        x: number;
+        y: number;
+        size: number;
+        color: string;
+    }
+
+    let crc2: CanvasRenderingContext2D;
+    let imageData: any = ImageData;
+    let bienen: Biene[] = [];
+    let n: number = 10;
+
     window.addEventListener("load", init);
-    var crc2;
-    var imageData;
-    var x = [];
-    var y = [];
-    var n = 10;
-    function init(_event) {
+
+
+    function init(_event: Event): void {
         console.log("Hallo");
-        var canvas;
+        let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
+
         crc2 = canvas.getContext("2d");
         console.log(crc2);
         crc2.fillStyle = "#a3d7ff";
@@ -24,10 +29,10 @@ var L5_Bienen;
         crc2.fillRect(0, 200, canvas.width, canvas.height);
         crc2.moveTo(0, 200);
         crc2.stroke();
-        function copyCanvas() {
-            var imageData = crc2.getImageData(0, 0, 550, 350);
-            crc2.putImageData(imageData, 550, 350);
-        }
+
+
+
+
         // Funktionsabläufe 
         drawSonne(10, 100, "#fef965", "#fcd93e");
         drawWolke(250, 60, "#ffffff", "white");
@@ -44,60 +49,77 @@ var L5_Bienen;
         drawPflanze(370, 250, "#8ff55c", "#8ff55c");
         zufallPosition();
         drawKorb(400, 290);
-        drawBiene(400, 300);
+
+
         imageData = crc2.getImageData(0, 0, canvas.width, canvas.height); //Speichern des Canvas als Bild
-        for (var i = 0; i < n; i++) {
-            x[i] = 480; //x-Koordinate Bienenkorböffnung
-            y[i] = 190; //y-Koordinate Bienenkorböffnung
+
+        for (let i: number = 0; i < n; i++) {
+            let b: Biene = { x: 0, y: 0, color: "", size: 0 };
+            b.x = 480; //x-Koordinate Bienenkorböffnung
+            b.y = 190; //y-Koordinate Bienenkorböffnung
+            b.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            b.size = Math.random() * 4 + 2;
+            bienen[i] = b;
+
         }
         canvas.addEventListener("click", addBee);
+
         //setTimeOut
-        window.setTimeout(animate, 40);
+        window.setTimeout(animate, 30);
     }
+
     //Aufgabe 5 Animation 
-    function animate() {
+
+    function animate(): void {
         crc2.putImageData(imageData, 0, 0);
-        for (var i = 0; i < n; i++) {
-            x[i] += Math.random() * 4 - 2.1;
-            y[i] += Math.random() * 7 - 3.5;
-            if (x[i] < 0) {
-                x[i] = crc2.canvas.width;
+        for (let i: number = 0; i < n; i++) {
+            let b: Biene = bienen[i];
+            b.x += Math.random() * 4 - 2.1;
+            b.y += Math.random() * 7 - 3.5;
+            if (b.x < 0) {
+                b.x = crc2.canvas.width;
             }
-            if (y[i] < 0) {
-                y[i] = crc2.canvas.height;
+            if (b.y < 0) {
+                b.y = crc2.canvas.height;
             }
-            if (y[i] >= crc2.canvas.height) {
-                y[i] = 0;
+            if (b.y >= crc2.canvas.height) {
+                b.y = 0;
             }
-            drawBiene(x[i], y[i]);
+            drawBiene(b);
+
         }
-        window.setTimeout(animate, 40);
+        window.setTimeout(animate, 30);
     }
-    function addBee() {
-        x.push(480);
-        y.push(190);
+
+
+    function addBee(): void {
+        bienen.push({ x: 480, y: 190, color: "hsl(" + Math.random() * 360 + ", 100%, 50%)", size: Math.random() * 4 + 2 });
         n++;
         console.log("added Bee");
     }
-    // Gibt eine Zufallszahl zwischen min (inklusive) und max (exklusive) zurück
-    // Die Verwendung von Math.round() erzeugt keine gleichmäßige Verteilung!
-    //function getRandomInt(min, max) {
-    //min = Math.ceil(min);
-    //max = Math.floor(max);
-    //return Math.floor(Math.random() * (max - min)) + min;
-    function zufallPosition() {
-        for (var i = 0; i < 7; i++) {
-            var minWidth = 30;
-            var minHeight = 200;
-            var maxWidth = 350;
-            var maxHeight = 300;
-            var n = Math.floor((Math.random() * 2) + 0);
-            var randomXPosition = Math.floor(Math.random() * (maxWidth - minWidth + 0) + minWidth);
-            var randomYPosition = Math.floor(Math.random() * (maxHeight - minHeight + 0) + minHeight);
+
+    function zufallPosition(): void {
+        for (var i: number = 0; i < 7; i++) {
+            var minWidth: number = 30;
+            var minHeight: number = 200;
+            var maxWidth: number = 350;
+            var maxHeight: number = 300;
+            var n: number = Math.floor((Math.random() * 2) + 0);
+            var randomXPosition: number = Math.floor(Math.random() * (maxWidth - minWidth + 0) + minWidth);
+            var randomYPosition: number = Math.floor(Math.random() * (maxHeight - minHeight + 0) + minHeight);
+
             drawBlume(randomXPosition, randomYPosition, "#black", "#b4232c");
+
         }
     }
-    function drawSonne(_x, _y, _strokeColor, _fillColor) {
+
+
+
+
+
+
+
+    function drawSonne(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -106,7 +128,9 @@ var L5_Bienen;
         crc2.fill();
         crc2.stroke();
     }
-    function drawWolke(_x, _y, _strokeColor, _fillColor) {
+
+
+    function drawWolke(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.arc(_x + 10, _y + 20, 30, 0, 2 * Math.PI);
@@ -117,7 +141,8 @@ var L5_Bienen;
         crc2.closePath();
         crc2.fill();
     }
-    function drawFelsen(_x, _y, _strokeColor, _fillColor) {
+
+    function drawFelsen(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
@@ -141,12 +166,14 @@ var L5_Bienen;
         crc2.stroke();
         //draw a triangle around the coordinates (_x, _y);
     }
-    function drawFelsenSpitze(_x, _y, _strokeColor, _fillColor) {
+
+    function drawFelsenSpitze(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         crc2.moveTo(_x - 35, _y - 5);
         crc2.lineTo(_x, _y - 50);
+
         crc2.lineTo(_x + 27, _y - 20);
         crc2.fill();
         crc2.stroke();
@@ -159,12 +186,16 @@ var L5_Bienen;
         crc2.lineTo(_x + 30, _y + 70);
         crc2.stroke();
     }
-    function drawBlume(_x, _y, _strokeColor, _fillColor) {
+
+
+    function drawBlume(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+
         crc2.beginPath();
         crc2.fillStyle = "#19760c";
         crc2.fillRect(_x + 5, _y + 15, 3, 25);
         crc2.arc(_x + 4, _y + 20, 12, 0, 1.5);
         crc2.fill();
+
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = "white";
@@ -195,12 +226,16 @@ var L5_Bienen;
         crc2.fill();
         crc2.stroke();
     }
-    function drawBlume1(_x, _y, _strokeColor, _fillColor) {
+
+
+    function drawBlume1(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+
         crc2.beginPath();
         crc2.fillStyle = "#19760c";
         crc2.fillRect(_x + 5, _y + 15, 3, 25);
         crc2.arc(_x + 4, _y + 20, 12, 0, 1.5);
         crc2.fill();
+
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = "white";
@@ -231,7 +266,9 @@ var L5_Bienen;
         crc2.fill();
         crc2.stroke();
     }
-    function drawTulpe(_x, _y, _strokeColor, _fillColor) {
+
+    function drawTulpe(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+
         crc2.beginPath();
         crc2.fillStyle = "#19760c";
         crc2.fillRect(_x + 10, _y + 30, 3, 22);
@@ -250,7 +287,9 @@ var L5_Bienen;
         crc2.closePath();
         crc2.fill();
     }
-    function drawPflanze(_x, _y, _strokeColor, _fillColor) {
+
+
+    function drawPflanze(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = "#277002";
         crc2.fillRect(_x + 10, _y + 30, 3, 60);
@@ -270,6 +309,9 @@ var L5_Bienen;
         crc2.closePath();
         crc2.fill();
     }
+
+
+
     /*
     function drawBaum(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
@@ -304,7 +346,8 @@ var L5_Bienen;
         crc2.fill();
         crc2.stroke();
     } */
-    function drawBaumKlein(_x, _y, _strokeColor, _fillColor) {
+
+    function drawBaumKlein(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
         crc2.beginPath();
         crc2.fillStyle = "#8b520d";
         crc2.strokeStyle = "#8b520d";
@@ -329,7 +372,8 @@ var L5_Bienen;
         crc2.fill();
         crc2.stroke();
     }
-    function drawKorb(_x, _y) {
+
+    function drawKorb(_x: number, _y: number): void {
         crc2.beginPath();
         crc2.fillStyle = "Peru";
         crc2.strokeStyle = "#000000";
@@ -343,16 +387,17 @@ var L5_Bienen;
         crc2.closePath();
         crc2.fill();
     }
-    function drawBiene(_x, _y) {
+
+    function drawBiene(_b: Biene): void {
         crc2.beginPath();
-        crc2.fillStyle = "black";
+        crc2.fillStyle = _b.color;
         crc2.strokeStyle = "yellow";
-        crc2.arc(_x + 0, _y + 0, 7, 0, 2 * Math.PI);
+        crc2.arc(_b.x + 0, _b.y + 0, 7, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
         crc2.beginPath();
-        crc2.arc(_x - 7, _y + 0, 4, 0, 2 * Math.PI);
+        crc2.arc(_b.x - 7, _b.y + 0, 4, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
@@ -360,18 +405,27 @@ var L5_Bienen;
         crc2.fillStyle = "yellow";
         crc2.strokeStyle = "yellor";
         crc2.lineWidth = 2;
-        crc2.moveTo(_x + 1, _y - 5);
-        crc2.lineTo(_x + 0, _y + 7);
+        crc2.moveTo(_b.x + 1, _b.y - 5);
+        crc2.lineTo(_b.x + 0, _b.y + 7);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
         crc2.beginPath();
         crc2.fillStyle = "white";
         crc2.strokeStyle = "black";
-        crc2.arc(_x + 3, _y - 14, 8, 0, 2);
+        crc2.arc(_b.x + 3, _b.y - 14, 8, 0, 2);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
     }
-})(L5_Bienen || (L5_Bienen = {}));
-//# sourceMappingURL=aufgabe5.js.map
+}
+
+
+
+
+
+
+
+
+
+
