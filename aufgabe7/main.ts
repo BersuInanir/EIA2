@@ -1,11 +1,6 @@
 namespace L7_ObjektorienteProgrammierung {
 
-    interface Biene {
-        x: number;
-        y: number;
-        size: number;
-        color: string;
-    }
+
     export let crc2: CanvasRenderingContext2D;
     let imageData: any = ImageData;
     let bienen: Biene[] = [];
@@ -52,7 +47,7 @@ namespace L7_ObjektorienteProgrammierung {
         imageData = crc2.getImageData(0, 0, canvas.width, canvas.height); //Speichern des Canvas als Bild
 
         for (let i: number = 0; i < n; i++) {
-            let b: Biene = new Biene(480, 190, this.color, this.size);
+            let b: Biene = new Biene(480, 190);
             bienen[i] = b;
             
             /*
@@ -86,7 +81,7 @@ namespace L7_ObjektorienteProgrammierung {
 
     
     function addBee(): void {
-        let biene: Biene = new Biene(480, 190, this.color, this.size);
+        let biene: Biene = new Biene(480, 190);
         bienen.push(biene);
         n++;
         console.log("added Bee");

@@ -1,7 +1,7 @@
 var L7_ObjektorienteProgrammierung;
 (function (L7_ObjektorienteProgrammierung) {
     var Biene = (function () {
-        function Biene(_x, _y, _color, _size) {
+        function Biene(_x, _y) {
             this.x = _x;
             this.y = _y;
             this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";

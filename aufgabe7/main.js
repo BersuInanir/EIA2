@@ -24,11 +24,8 @@ var L7_ObjektorienteProgrammierung;
         drawWolke(440, 5, "#ffffff", "white");
         drawFelsen(105, 115, "#ffffff", "#9eab94");
         drawFelsenSpitze(105, 70, "#ffffff", "white");
-        drawBlume(200, 290, "#black", "#5e4781");
-        drawBlume(80, 250, "#black", "#b4232c");
         drawBlume1(120, 200, "black", "yellow");
         drawTulpe(320, 220, "black", "black");
-        //  drawBaum(0, 0, "#8b520d", "#8b520d");
         drawBaumKlein(0, 0, "#8b520d", "#8b520d");
         drawPflanze(370, 250, "#8ff55c", "#8ff55c");
         drawKorb(400, 290);
@@ -36,7 +33,7 @@ var L7_ObjektorienteProgrammierung;
         f.zufallPosition();
         imageData = L7_ObjektorienteProgrammierung.crc2.getImageData(0, 0, canvas.width, canvas.height); //Speichern des Canvas als Bild
         for (var i = 0; i < n; i++) {
-            var b = new L7_ObjektorienteProgrammierung.Biene(480, 190, this.color, this.size);
+            var b = new L7_ObjektorienteProgrammierung.Biene(480, 190);
             bienen[i] = b;
         }
         canvas.addEventListener("click", addBee);
@@ -49,23 +46,14 @@ var L7_ObjektorienteProgrammierung;
         L7_ObjektorienteProgrammierung.crc2.putImageData(imageData, 0, 0);
         for (var i = 0; i < n; i++) {
             var b = bienen[i];
-            b.x += Math.random() * 4 - 2.1;
-            b.y += Math.random() * 7 - 3.5;
-            if (b.x < 0) {
-                b.x = L7_ObjektorienteProgrammierung.crc2.canvas.width;
-            }
-            if (b.y < 0) {
-                b.y = L7_ObjektorienteProgrammierung.crc2.canvas.height;
-            }
-            if (b.y >= L7_ObjektorienteProgrammierung.crc2.canvas.height) {
-                b.y = 0;
-            }
-            drawBiene(b);
+            b.move();
+            b.drawBiene();
         }
         window.setTimeout(animate, 20);
     }
     function addBee() {
-        bienen.push({ x: 480, y: 190, color: "hsl(" + Math.random() * 360 + ", 100%, 50%)", size: Math.random() * 7 + 5 });
+        var biene = new L7_ObjektorienteProgrammierung.Biene(480, 190);
+        bienen.push(biene);
         n++;
         console.log("added Bee");
     }
@@ -129,42 +117,6 @@ var L7_ObjektorienteProgrammierung;
         L7_ObjektorienteProgrammierung.crc2.moveTo(_x - 50, _y + 18);
         L7_ObjektorienteProgrammierung.crc2.lineTo(_x - 20, _y + 50);
         L7_ObjektorienteProgrammierung.crc2.lineTo(_x + 30, _y + 70);
-        L7_ObjektorienteProgrammierung.crc2.stroke();
-    }
-    function drawBlume(_x, _y, _strokeColor, _fillColor) {
-        L7_ObjektorienteProgrammierung.crc2.beginPath();
-        L7_ObjektorienteProgrammierung.crc2.fillStyle = "#19760c";
-        L7_ObjektorienteProgrammierung.crc2.fillRect(_x + 5, _y + 15, 3, 25);
-        L7_ObjektorienteProgrammierung.crc2.arc(_x + 4, _y + 20, 12, 0, 1.5);
-        L7_ObjektorienteProgrammierung.crc2.fill();
-        L7_ObjektorienteProgrammierung.crc2.beginPath();
-        L7_ObjektorienteProgrammierung.crc2.fillStyle = _fillColor;
-        L7_ObjektorienteProgrammierung.crc2.strokeStyle = "white";
-        L7_ObjektorienteProgrammierung.crc2.lineWidth = 1;
-        L7_ObjektorienteProgrammierung.crc2.arc(_x - 3, _y + 0, 9, 0, 2 * Math.PI);
-        L7_ObjektorienteProgrammierung.crc2.fill();
-        L7_ObjektorienteProgrammierung.crc2.stroke();
-        L7_ObjektorienteProgrammierung.crc2.beginPath();
-        L7_ObjektorienteProgrammierung.crc2.fillStyle = _fillColor;
-        L7_ObjektorienteProgrammierung.crc2.arc(_x + 8, _y - 12, 9, 0, 2 * Math.PI);
-        L7_ObjektorienteProgrammierung.crc2.fill();
-        L7_ObjektorienteProgrammierung.crc2.stroke();
-        L7_ObjektorienteProgrammierung.crc2.beginPath();
-        L7_ObjektorienteProgrammierung.crc2.fillStyle = _fillColor;
-        L7_ObjektorienteProgrammierung.crc2.arc(_x + 19, _y - 1, 9, 0, 2 * Math.PI);
-        L7_ObjektorienteProgrammierung.crc2.fill();
-        L7_ObjektorienteProgrammierung.crc2.stroke();
-        L7_ObjektorienteProgrammierung.crc2.beginPath();
-        L7_ObjektorienteProgrammierung.crc2.fillStyle = _fillColor;
-        L7_ObjektorienteProgrammierung.crc2.arc(_x + 8, _y + 10, 9, 0, 2 * Math.PI);
-        L7_ObjektorienteProgrammierung.crc2.closePath();
-        L7_ObjektorienteProgrammierung.crc2.fill();
-        L7_ObjektorienteProgrammierung.crc2.stroke();
-        L7_ObjektorienteProgrammierung.crc2.beginPath();
-        L7_ObjektorienteProgrammierung.crc2.fillStyle = "#f5ee5c";
-        L7_ObjektorienteProgrammierung.crc2.arc(_x + 8, _y + 0, 6, 0, 2 * Math.PI);
-        L7_ObjektorienteProgrammierung.crc2.closePath();
-        L7_ObjektorienteProgrammierung.crc2.fill();
         L7_ObjektorienteProgrammierung.crc2.stroke();
     }
     function drawBlume1(_x, _y, _strokeColor, _fillColor) {
@@ -280,29 +232,6 @@ var L7_ObjektorienteProgrammierung;
         L7_ObjektorienteProgrammierung.crc2.fillRect(490, 190, 15, 15);
         L7_ObjektorienteProgrammierung.crc2.closePath();
         L7_ObjektorienteProgrammierung.crc2.fill();
-    }
-    ////// Aufgabe 6  ///////
-    function drawBiene(_b) {
-        L7_ObjektorienteProgrammierung.crc2.beginPath();
-        L7_ObjektorienteProgrammierung.crc2.lineWidth = 2;
-        L7_ObjektorienteProgrammierung.crc2.fillStyle = _b.color;
-        L7_ObjektorienteProgrammierung.crc2.strokeStyle = "black";
-        L7_ObjektorienteProgrammierung.crc2.arc(_b.x, _b.y, _b.size, 0, 2 * Math.PI);
-        L7_ObjektorienteProgrammierung.crc2.closePath();
-        L7_ObjektorienteProgrammierung.crc2.fill();
-        L7_ObjektorienteProgrammierung.crc2.stroke();
-        L7_ObjektorienteProgrammierung.crc2.beginPath();
-        L7_ObjektorienteProgrammierung.crc2.arc(_b.x - 10, _b.y, _b.size, 0, 2 * Math.PI);
-        L7_ObjektorienteProgrammierung.crc2.closePath();
-        L7_ObjektorienteProgrammierung.crc2.fill();
-        L7_ObjektorienteProgrammierung.crc2.stroke();
-        L7_ObjektorienteProgrammierung.crc2.beginPath();
-        L7_ObjektorienteProgrammierung.crc2.fillStyle = "white";
-        L7_ObjektorienteProgrammierung.crc2.strokeStyle = "black";
-        L7_ObjektorienteProgrammierung.crc2.arc(_b.x + 3, _b.y - 14, _b.size, 0, 2);
-        L7_ObjektorienteProgrammierung.crc2.closePath();
-        L7_ObjektorienteProgrammierung.crc2.fill();
-        L7_ObjektorienteProgrammierung.crc2.stroke();
     }
 })(L7_ObjektorienteProgrammierung || (L7_ObjektorienteProgrammierung = {}));
 //# sourceMappingURL=main.js.map
