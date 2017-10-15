@@ -72,7 +72,7 @@ namespace L1_Canvas {
         crc2.lineTo(100, 600);
         crc2.closePath();
         crc2.stroke();
-        crc2.fillStyle = "SlateGrey";
+        crc2.fillStyle = "grey";
         crc2.fill();
 
 
@@ -92,10 +92,10 @@ namespace L1_Canvas {
 
         crc2.beginPath();
         crc2.moveTo(450, 98);
-        crc2.lineTo(477, 150);
-        crc2.lineTo(423, 150);
+        crc2.lineTo(700, 600);
+        crc2.lineTo(620, 600);
         crc2.closePath();
-        crc2.fillStyle = "white";
+        crc2.fillStyle = "Dimgrey";
         crc2.fill();
 
 
