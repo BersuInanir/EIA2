@@ -171,6 +171,7 @@ var L2_Canvas;
         crc2.closePath();
         crc2.fill();
     }
+    
     function drawSnowflake(_x, _y, _radius, _sAngle, _eAngle, _color) {
         crc2.beginPath();
         crc2.arc(_x, _y, _radius, _sAngle, _eAngle * Math.PI);

@@ -227,6 +227,7 @@ namespace L2_Canvas {
 
     
     
+    
     function drawSnowflake(_x: number, _y: number, _radius: number, _sAngle: number, _eAngle: number, _color: string): void {
         crc2.beginPath();
         crc2.arc(_x, _y, _radius, _sAngle, _eAngle * Math.PI);
@@ -235,6 +236,8 @@ namespace L2_Canvas {
         crc2.fill();
         }
 
+    
+    
 }
 
 
