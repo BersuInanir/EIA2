@@ -1,2 +1,6 @@
-canvas {border: 2px solid black;
+canvas {border: 1px solid black;
 		widht: 100%;}
+		
+canvas {display: block;
+		margin: auto;
+		margin-top: 30px;}		
