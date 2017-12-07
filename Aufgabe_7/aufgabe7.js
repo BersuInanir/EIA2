@@ -8,12 +8,12 @@ var StudiVZ;
             case "n":
             case "N":
                 var input = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 male oder 1 female) und Kommentar");
-                alert(saveData(input));
+                alert(saveData(input)); // gibt den return Wert aus saveData zur�ck als alert
                 break;
             case "a":
             case "A":
                 var matrikel = parseInt(prompt("Eingabe Matrikelnummer"));
-                alert(queryData(matrikel));
+                alert(queryData(matrikel)); // gibt den return Wert aus queryData zur�ck als alert
                 break;
             case "s":
             case "S":

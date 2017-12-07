@@ -17,12 +17,12 @@ namespace StudiVZ {
             case "n":
             case "N":
                 var input: string = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 male oder 1 female) und Kommentar");
-                alert(saveData(input));
+                alert(saveData(input));   // gibt den return Wert aus saveData zurück als alert
                 break;
             case "a":
             case "A":
                 var matrikel: number = parseInt(prompt("Eingabe Matrikelnummer"));
-                alert(queryData(matrikel));
+                alert(queryData(matrikel)); // gibt den return Wert aus queryData zurück als alert
                 break;
             case "s":
             case "S":
@@ -41,7 +41,7 @@ namespace StudiVZ {
 
 
         let studentData: StudentData = {                                    //Variable für das Interface StudentData anlegen
-            //Daten werden im Array Students abgelegt
+                                                                            //Daten werden im Array Students abgelegt
             matrikelnummer: parseInt(datenArray[0]),                        //parseInt wandelt eine number in einen string um          
             name: datenArray[1],
             vorname: datenArray[2],
