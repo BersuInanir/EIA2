@@ -30,7 +30,7 @@ header {
 	background-color: rgb(255,255,255,0.5);
 	position: fixed;
 	width: 100%;
-	margin-top: -15%;
+	
 }
 
 header nav {
@@ -102,36 +102,44 @@ header #Portfolio {
 	margin-bottom: 2%;
 }
 
-#name {
-	margin-top: 15%;
-	width: 40%;
-	max-width: 100%;
-	margin-left: auto;
-	margin-right: auto;	
+/* #name { */
+/* 	margin-top: 15%; */
+/* 	width: 40%; */
+/* 	max-width: 100%; */
+/* 	margin-left: auto; */
+/* 	margin-right: auto;	 */
+/* 	color: black; */
 	
-	color: black;
-	
-}
+/* } */
 
-#name h1 {	
-		font-family: 'Open Sans', sans-serif;
-		text-align: left;}
+/* #name h1 {	 */
+/* 		font-family: 'Open Sans', sans-serif; */
+/* 		text-align: left; */
+/* 		max-width: 100%;} */
 
-#ersteh1 {font-size: 120pt;		
-			border-radius: 20px;
-			letter-spacing: -0.1em;
-			color: rgb(0,0,0,0.9);
+/* #ersteh1 {font-size: 120pt;	 */
+/* 			text-align: left;	 */
+/* 			letter-spacing: -0.1em; */
+/* 			color: rgb(0,0,0,0.8); */
 			
-}
+/* } */
 
-#zweiteh1 {margin-top: -34%;
-		 font-size: 60pt;
-		 letter-spacing: 0.18em;
-		 color: rgb(255,127,80);
-		 border-bottom: 2px solid;
-		 border-color: #2F4F4F;
-		 text-align: center;
-		 padding-left: 1.9em;}
+
+#erste img {display: block;
+				padding-top: 14%;
+				margin-left: auto;
+				margin-right: auto;
+				width: 45%;
+				max-width: 100%;}
+
+/* #zweiteh1 {margin-top: -36%; */
+/* 		 font-size: 60pt; */
+/* 		 letter-spacing: 0.18em; */
+/* 		 color: rgb(255,127,80); */
+/* 		 border-bottom: 2px solid; */
+/* 		 border-color: #2F4F4F; */
+/* 		 text-align: right; */
+/* 		 padding-left: 1.91em;} */
 
 
 
@@ -144,7 +152,6 @@ header #Portfolio {
 /* Section ZWEI */
 #zweite {
 	background-color: white;
-	margin-top: -18%;
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
@@ -228,13 +235,24 @@ p {
 	margin-bottom: 4%;
 }
 
+#sundance {
+			width: 50%;
+			max-width: 100%;
+			margin-left: auto;
+			margin-right: auto;}
+
+
 #sundance1 {
-	margin-left: 22%;
+	position: relative;	
 	float: left;
-	padding-right: 10%;
+	padding-right: 5%;
 	display: block;
-	max-height: 100%
+	max-height: 100%;
+	max-width: 100%;
 }
+
+#sundance2 {position: relative;
+			margin-right: auto;}
 
 img {
 	max-width: 100%;
