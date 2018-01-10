@@ -1,0 +1,328 @@
+@import
+	url('https://fonts.googleapis.com/css?family=Cutive+Mono|Inconsolata|Quicksand|Raleway|Source+Sans+Pro')
+	;
+
+@import
+	url('https://fonts.googleapis.com/css?family=Arimo|Roboto+Condensed');
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600');
+
+body * {
+	font-family: 'Quicksand', sans-serif;
+}
+
+html, body {
+	height: 100%
+}
+
+hr {
+	margin-top: 7%;
+	color: rgb(255,127,80);
+	
+}
+
+strong {color: rgb(255,127,80);
+		letter-spacing: -0.1em;
+		font-size: 16pt;}
+
+header {
+	height: 8%;
+	background-color: rgb(255,255,255,0.5);
+	position: fixed;
+	width: 100%;
+	margin-top: -15%;
+}
+
+header nav {
+	position: relative;
+	float: left;
+	margin-top: 0.5%;
+}
+
+header ul {
+	list-style-type: none;
+}
+
+header ul li {
+	display: inline;
+	}
+
+header nav a {
+	text-decoration: none;
+	color: black;
+	font-size: 14pt;
+	letter-spacing: 0em;
+	font-weight: 600;
+	padding-left: 3em;
+	letter-spacing: -0.1em;
+	font-family: 'Open Sans', sans-serif;
+}
+
+nav a:hover {
+	text-decoration: line-through
+}
+
+
+
+
+
+
+header #Portfolio {
+	font-family: 'Open Sans', sans-serif;
+	margin-top: 1%;
+	font-size: 20pt;
+	margin-right: 15%;
+	font-weight: 600;
+	color: black;
+	text-decoration: none;
+	text-decoration: line-through;
+	float: right;
+	position: relative;
+	cursor: pointer;
+}
+
+#Portfolio:hover {letter-spacing: 0.3em;
+					color: rgb(255,127,80); 
+					transition: 1s;}
+
+/* Section EINS */
+#erste {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	background-color: white;
+}
+
+#programmieren {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	border-radius: 50px;
+	margin-top: -2%;
+	margin-bottom: 2%;
+}
+
+#name {
+	margin-top: 15%;
+	width: 40%;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;	
+	
+	color: black;
+	
+}
+
+#name h1 {	
+		font-family: 'Open Sans', sans-serif;
+		text-align: left;}
+
+#ersteh1 {font-size: 120pt;		
+			border-radius: 20px;
+			letter-spacing: -0.1em;
+			color: rgb(0,0,0,0.9);
+			
+}
+
+#zweiteh1 {margin-top: -34%;
+		 font-size: 60pt;
+		 letter-spacing: 0.18em;
+		 color: rgb(255,127,80);
+		 border-bottom: 2px solid;
+		 border-color: #2F4F4F;
+		 text-align: center;
+		 padding-left: 1.9em;}
+
+
+
+#uberschrift {
+	font-size: 100pt;
+	margin-top: 3em;
+	color: rgba(58, 68, 89, 0.97);
+}
+
+/* Section ZWEI */
+#zweite {
+	background-color: white;
+	margin-top: -18%;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+#zweite h2, #sechste h2{
+	font-size: 34pt;
+	text-align: left;
+	padding-left: 18%;
+	font-family: 'Open Sans', sans-serif;
+	letter-spacing: -0.08em;
+	font-weight: 600;
+	margin-bottom: 12%;
+	font-weight: 100;
+}
+
+.Fach {
+	font-family: 'Quicksand', sans-serif;
+	margin-bottom: 4%;
+	color: #2F4F4F;
+	margin-top: -5%;
+	font-weight: 100;
+	text-align: center;
+	letter-spacing: 0.2em;
+	font-size: 20pt;
+}
+
+p {
+	font-size: 14pt;
+	text-align: center;
+	line-height: 1.7em;
+}
+
+#Online1 {
+	max-width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 4%;
+	border-left: 2px solid #2F4F4F;
+	border-right: 2px solid #2F4F4F;
+}
+
+#Online2 {
+	max-width: 50%;
+	border-left: 2px solid #2F4F4F;
+	border-right: 2px solid #2F4F4F;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 4%;
+}
+
+/* Section 3 */
+#dritte {
+	background-color: white;
+	margin-top: 15%;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+#ux {
+	border: 1px solid black;
+	border-radius: 50px;
+	height: 10%;
+	width: 4%;
+	line-height: 1.5em;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	font-size: 26pt;
+	background-color: black;
+	color: white;
+	text-align: center;
+	margin-top: -2%;
+	margin-bottom: 3%;
+}
+
+#dritte p {
+	margin-bottom: 4%;
+}
+
+#sundance1 {
+	margin-left: 22%;
+	float: left;
+	padding-right: 10%;
+	display: block;
+	max-height: 100%
+}
+
+img {
+	max-width: 100%;
+}
+
+/* Section 4 */
+#vierte {
+	background-color: white;
+	margin-top: 15%;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+#blender {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: -3%;
+	margin-bottom: 4%;
+}
+
+#buro {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	max-width: 100%;
+	border-left: 3px solid #2F4F4F;
+	border-right: 3px solid #2F4F4F;
+}
+
+/* Section 7 */
+#funfte {
+	background-color: white;
+	margin-top: 12%;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+#kamera {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: -2%;
+	margin-bottom: 4%;
+}
+
+#funfte h3 {
+	text-align: center;
+	font-size: 20pt;
+	margin-top: 5%;
+	color: #2F4F4F;
+	letter-spacing: -0.1em;
+}
+
+#leap {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	max-width: 100%
+}
+
+/* Section 8 */
+
+#sechste {
+	background-color: white;
+	margin-top: 12%;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+#sechste div {margin-left: auto;
+				margin-right: auto;
+				width: 25%;
+				text-align: center;
+				max-width: 100%;
+				margin-top: -10%;
+				margin-bottom: 4%;
+				padding-bottom: 3%;
+				border: 1.5px solid #2F4F4F;}
+				
+				
+#sechste h3 {text-decoration: underline;
+			color: rgb(255,127,80);
+			font-family: 'Open Sans', sans-serif;
+			letter-spacing: -0.1em;
+			font-size: 16pt;}				
+			
+#sechste img {padding-top: 0.5em;}				
