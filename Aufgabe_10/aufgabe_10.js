@@ -4,23 +4,23 @@ var aufgabe10;
     window.addEventListener("load", init);
     // ARRAY Weihnachtsbaum 
     let weihnachtsbaum = ["Nordmanntanne", "Blaufichte", "Edeltanne", "Colorado-Tanne"];
-    // Leeres HTMLInputElement Array um ausgew�hlte Artikel abzuspeichern
+    // Leeres HTMLInputElement Array um  Artikel abzuspeichern
     let inputWeihnachtsbaum = [];
     // ARRAY Halterung
     let halterung = ["Metall", "Messing"];
-    // Leeres HTMLInputElement Array um ausgew�hlte Artikel abzuspeichern
+    // Leeres HTMLInputElement Array um Artikel abzuspeichern
     let inputHalterung = [];
     // ARRAY Dekoration 
     let dekoration = ["Plastikkugeln", "Glaskugeln", "Glocken", "Lametta", "Schneeflocken", "Christbaumspitze"];
-    // Leeres HTMLInputElement Array um ausgew�hlte Artikel abzuspeichern
+    // Leeres HTMLInputElement Array um  Artikel abzuspeichern
     let inputDekoration = [];
     //Array Beleuchtung
     let beleuchtung = ["Lichterketten", "LED-Kugeln", "LED-Sterne"];
-    // Leeres HTMLInputElement Array um ausgew�hlte Artikel abzuspeichern
+    // Leeres HTMLInputElement Array um  Artikel abzuspeichern
     let inputBeleuchtung = [];
     // ARRAY Lieferung
     let lieferung = ["Standard", "Express"];
-    // Leeres HTMLInputElement Array um ausgew�hlte Artikel abzuspeichern
+    // Leeres HTMLInputElement Array um  Artikel abzuspeichern
     let inputLieferung = [];
     // Erstellte Variablen sollen HTML-Element sein
     let Baum;
@@ -71,7 +71,7 @@ var aufgabe10;
         input.value = "radioboxes";
         input.id = "radio";
         Baum.appendChild(label); //Append Label to Baum 
-        inputWeihnachtsbaum.push(input); // nput wird in das leere Array gepusht
+        inputWeihnachtsbaum.push(input); // input wird in das leere Array gepusht
     }
     //For-Schleife zur Erzeugnung Halterung
     function createHalterung() {
@@ -167,11 +167,11 @@ var aufgabe10;
             }
         }
         for (let i = 0; i < inputDekoration.length; i++) {
-            summe += parseInt(inputDekoration[i].value); //Wert wird zum String umgewandelt
-        }
+            summe += (parseInt(inputDekoration[i].value) * 2); //liest string ein und wird in number umgewandelt
+        } // value = string
         for (let i = 0; i < inputBeleuchtung.length; i++) {
-            summe += parseInt(inputBeleuchtung[i].value); //Wert wird zum String umgewandelt 
-        }
+            summe += (parseInt(inputBeleuchtung[i].value) * 4); //liest string ein und wird in number umgewandelt 
+        } // value = string             
         handleChange(summe); //Funktion handleChange wird aufgerufen 
     }
     // Warenkorb 
@@ -199,12 +199,12 @@ var aufgabe10;
         }
         for (let i = 0; i < inputDekoration.length; i++) {
             if (parseInt(inputDekoration[i].value) > 0) {
-                document.getElementById("warenDekoration").innerText += dekoration[i] + " " + " " + (parseInt(inputDekoration[i].value) * 1) + " Euro" + "\n";
+                document.getElementById("warenDekoration").innerText += dekoration[i] + " " + " " + (parseInt(inputDekoration[i].value) * 2) + " Euro" + "\n";
             }
         }
         for (let i = 0; i < inputBeleuchtung.length; i++) {
             if (parseInt(inputBeleuchtung[i].value) > 0) {
-                document.getElementById("warenBeleuchtung").innerText += beleuchtung[i] + " " + " " + (parseInt(inputBeleuchtung[i].value) * 1) + " Euro" + "\n";
+                document.getElementById("warenBeleuchtung").innerText += beleuchtung[i] + " " + " " + (parseInt(inputBeleuchtung[i].value) * 4) + " Euro" + "\n";
             }
         }
         document.getElementById("gesamtsumme").innerText = _summe.toString() + " Euro"; // wandelt Zahl in einen String 
@@ -217,7 +217,8 @@ var aufgabe10;
         let strasse = document.getElementById("strasse");
         let postleitzahl = document.getElementById("postleitzahl");
         let ort = document.getElementById("ort");
-        // �berpr�ft ob etwas eingegeben wurde 
+        // �berpr�ft ob etwas eingegeben wurde
+        // checkValidity = boolean 
         if (nachname.checkValidity() == false || vorname.checkValidity() == false || email.checkValidity() == false || strasse.checkValidity() == false || postleitzahl.checkValidity() == false || ort.checkValidity() == false) {
             //Wenn Fehlerhaft 
             alert("Bitte alle Felder in der Liefer-Adresse ausfuellen");

@@ -7,28 +7,28 @@ namespace aufgabe10 {
 
 
     // ARRAY Weihnachtsbaum 
-    let weihnachtsbaum: string[] = ["Nordmanntanne", "Blaufichte", "Edeltanne", "Colorado-Tanne"]; 
-    // Leeres HTMLInputElement Array um ausgewählte Artikel abzuspeichern
+    let weihnachtsbaum: string[] = ["Nordmanntanne", "Blaufichte", "Edeltanne", "Colorado-Tanne"];
+    // Leeres HTMLInputElement Array um  Artikel abzuspeichern
     let inputWeihnachtsbaum: HTMLInputElement[] = [];
 
     // ARRAY Halterung
     let halterung: string[] = ["Metall", "Messing"];
-    // Leeres HTMLInputElement Array um ausgewählte Artikel abzuspeichern
+    // Leeres HTMLInputElement Array um Artikel abzuspeichern
     let inputHalterung: HTMLInputElement[] = [];
 
     // ARRAY Dekoration 
     let dekoration: string[] = ["Plastikkugeln", "Glaskugeln", "Glocken", "Lametta", "Schneeflocken", "Christbaumspitze"];
-    // Leeres HTMLInputElement Array um ausgewählte Artikel abzuspeichern
+    // Leeres HTMLInputElement Array um  Artikel abzuspeichern
     let inputDekoration: HTMLInputElement[] = [];
 
     //Array Beleuchtung
     let beleuchtung: string[] = ["Lichterketten", "LED-Kugeln", "LED-Sterne"];
-    // Leeres HTMLInputElement Array um ausgewählte Artikel abzuspeichern
+    // Leeres HTMLInputElement Array um  Artikel abzuspeichern
     let inputBeleuchtung: HTMLInputElement[] = [];
 
     // ARRAY Lieferung
     let lieferung: string[] = ["Standard", "Express"];
-    // Leeres HTMLInputElement Array um ausgewählte Artikel abzuspeichern
+    // Leeres HTMLInputElement Array um  Artikel abzuspeichern
     let inputLieferung: HTMLInputElement[] = [];
 
 
@@ -47,12 +47,12 @@ namespace aufgabe10 {
 
     function init(): void {
 
-        
+
         // Die erstellten Variablen werden der Id im HTML-Dokument zugewiesen
 
         Baum = document.getElementById("baum");           // Variable erhält zugriff auf ID im HTML
         Baum.addEventListener("change", changeOrder);     //EventListener Change wird bei erfolgter Änderung ausgelöst
-                                                          //Wenn Wert verändert wird, wird EventListener aktiviert
+        //Wenn Wert verändert wird, wird EventListener aktiviert
 
         Halterung = document.getElementById("halterung");
         Halterung.addEventListener("change", changeOrder);
@@ -71,9 +71,9 @@ namespace aufgabe10 {
         Warenkorbbutton.addEventListener("click", checkOrder);
 
 
-        
+
         // Funktionen zur Erstellung des Formulars
-        createBaum();       
+        createBaum();
         createHalterung();
         createDekoration();
         createBeleuchtung();
@@ -93,7 +93,7 @@ namespace aufgabe10 {
         }
     }
 
-    
+
     // Input und Label werden erzeugt 
     function createInputBaum(_baum: string): void {  // Für den Artikel werden Input & Label erzeugt
 
@@ -108,11 +108,11 @@ namespace aufgabe10 {
         input.value = "radioboxes";
         input.id = "radio";
         Baum.appendChild(label);        //Append Label to Baum 
-        inputWeihnachtsbaum.push(input); // nput wird in das leere Array gepusht
+        inputWeihnachtsbaum.push(input); // input wird in das leere Array gepusht
 
     }
 
-    
+
     //For-Schleife zur Erzeugnung Halterung
     function createHalterung(): void {
         //erstellt pro Halterung einen Input
@@ -121,7 +121,7 @@ namespace aufgabe10 {
         }
     }
 
-    
+
     function createInputHalterung(_halterung: string): void {   // Für den Artikel werden Input & Label erzeugt
 
         let label: HTMLLabelElement = document.createElement("label"); //label wird erzeugt
@@ -138,7 +138,7 @@ namespace aufgabe10 {
     }
 
 
-    
+
     // For-Schleife zur Erzeugung Dekoration 
     function createDekoration(): void {
         //erstellt pro Dekoration einen Input
@@ -147,7 +147,7 @@ namespace aufgabe10 {
         }
     }
 
-    
+
     function createInputDekoration(_dekoration: string): void { //Für den Artikel werden Input & Label erzeugt
 
         let label: HTMLLabelElement = document.createElement("label"); //label wird erzeugt
@@ -165,7 +165,7 @@ namespace aufgabe10 {
         inputDekoration.push(input);        //Input wird ins leere Array gepusht
     }
 
-    
+
     //For-Schleife zur Erzeugung Beleuchtung
     function createBeleuchtung(): void {
         //erstellt pro Beleuchtung einen Input 
@@ -191,8 +191,8 @@ namespace aufgabe10 {
         inputBeleuchtung.push(input);   //Input wird ins leere Array gepusht
     }
 
-    
-    
+
+
     //For-Schleife zur Erzeugung Lieferung
     function createLieferung(): void {
         //erstellt pro Lieferung einen Input
@@ -224,7 +224,7 @@ namespace aufgabe10 {
 
         let summe: number = 0;  //Warenkorb leer 
 
-        for (let i: number = 0; i < inputWeihnachtsbaum.length; i++) {
+        for (let i: number = 0; i < inputWeihnachtsbaum.length; i++) { //Artikel werden druchlaufen
             if (inputWeihnachtsbaum[i].checked) { //boolean bei mehrerer Auswahlmöglichkeit
                 summe += 40;    //summe + 40
             }
@@ -245,12 +245,12 @@ namespace aufgabe10 {
         }
 
         for (let i: number = 0; i < inputDekoration.length; i++) {
-            summe += parseInt(inputDekoration[i].value);    //Wert wird zum String umgewandelt
-        }                                                   
+            summe += (parseInt(inputDekoration[i].value) * 2);    //liest string ein und wird in number umgewandelt
+        }                                                    // value = string
 
         for (let i: number = 0; i < inputBeleuchtung.length; i++) {
-            summe += parseInt(inputBeleuchtung[i].value); //Wert wird zum String umgewandelt 
-        }
+            summe += (parseInt(inputBeleuchtung[i].value) * 4); //liest string ein und wird in number umgewandelt 
+        }                                                  // value = string             
 
         handleChange(summe); //Funktion handleChange wird aufgerufen 
 
@@ -260,9 +260,9 @@ namespace aufgabe10 {
     // Warenkorb 
     function handleChange(_summe: number): void {  //Funktion gibt Gesamtsumme aus 
 
-        
+
         //Greift auf Element Id im Html zu & fügt einen Text ein 
-        document.getElementById("warenBaum").innerText = " ";   
+        document.getElementById("warenBaum").innerText = " ";
         document.getElementById("warenHalterung").innerText = " ";
         document.getElementById("warenDekoration").innerText = " ";
         document.getElementById("warenBeleuchtung").innerText = " ";
@@ -284,6 +284,7 @@ namespace aufgabe10 {
                 document.getElementById("warenHalterung").innerText += halterung[i] + " " + " 10 Euro" + "\n"; //Innertext = Artikel und Summe
             }
 
+
         }
 
         for (let i: number = 0; i < inputLieferung.length; i++) {
@@ -296,15 +297,15 @@ namespace aufgabe10 {
         }
         for (let i: number = 0; i < inputDekoration.length; i++) {
 
-            if (parseInt(inputDekoration[i].value) > 0) {   //konvertiert zeichenfolge in ganze zahl 
-                document.getElementById("warenDekoration").innerText += dekoration[i] + " " + " " + (parseInt(inputDekoration[i].value) * 1) + " Euro" + "\n";
+            if (parseInt(inputDekoration[i].value) > 0) {   //konvertiert string in zahl //value = string
+                document.getElementById("warenDekoration").innerText += dekoration[i] + " " + " " + (parseInt(inputDekoration[i].value) * 2) + " Euro" + "\n";
             }
         }
 
         for (let i: number = 0; i < inputBeleuchtung.length; i++) {
 
-            if (parseInt(inputBeleuchtung[i].value) > 0) {  
-                document.getElementById("warenBeleuchtung").innerText += beleuchtung[i] + " " + " " + (parseInt(inputBeleuchtung[i].value) * 1) + " Euro" + "\n";
+            if (parseInt(inputBeleuchtung[i].value) > 0) {   //konvertiert string in zahl //value = string
+                document.getElementById("warenBeleuchtung").innerText += beleuchtung[i] + " " + " " + (parseInt(inputBeleuchtung[i].value) * 4) + " Euro" + "\n";
             }
         }
 
@@ -325,15 +326,16 @@ namespace aufgabe10 {
         let postleitzahl: HTMLInputElement = <HTMLInputElement>document.getElementById("postleitzahl");
         let ort: HTMLInputElement = <HTMLInputElement>document.getElementById("ort");
 
-        // überprüft ob etwas eingegeben wurde 
+        // überprüft ob etwas eingegeben wurde
+        // checkValidity = boolean 
         if (nachname.checkValidity() == false || vorname.checkValidity() == false || email.checkValidity() == false || strasse.checkValidity() == false || postleitzahl.checkValidity() == false || ort.checkValidity() == false) {
 
-            
+
             //Wenn Fehlerhaft 
             alert("Bitte alle Felder in der Liefer-Adresse ausfuellen");
         }
-        
-        
+
+
         //Wenn richtig 
         else {
             nachname.style.backgroundColor = "lightgreen";
