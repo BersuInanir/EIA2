@@ -23,8 +23,7 @@ namespace Abschlussaufgabe {
     //SUPERKLASSE STERNE
     let stern: Sterne[] = [];
     
-    //KLASSE STERNSCHNUPPE
-//    let sternschnuppen: Sterne[] = [];
+
 
     //SUPERKLASSE PLANETEN 
     let planets: Planeten[] = [];
@@ -152,11 +151,7 @@ namespace Abschlussaufgabe {
                 star.update();
             }
             
-            //STERNSCHNUPPEN 
-//            for (let i: number = 0; i < sternschnuppen.length; i++) {
-//                let star: Sterne = sternschnuppen[i];
-//                star.update();
-//            }
+
 
             //TIMEOUT
             window.setTimeout(animate, 30);                         
@@ -174,6 +169,7 @@ namespace Abschlussaufgabe {
             }
             if (!hadClick) {                                        // Wenn keiner der Planeten angeklickt wurde dann wird die Funktion addSternschnuppe aufgerufen 
                 addSternschnuppe();
+                
             }
         }
 

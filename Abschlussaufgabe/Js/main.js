@@ -12,8 +12,6 @@ var Abschlussaufgabe;
     let imageData; // Variable um Hintergrund zu speichern 
     //SUPERKLASSE STERNE
     let stern = [];
-    //KLASSE STERNSCHNUPPE
-    //    let sternschnuppen: Sterne[] = [];
     //SUPERKLASSE PLANETEN 
     let planets = [];
     //Function init
@@ -114,11 +112,6 @@ var Abschlussaufgabe;
             let star = stern[i];
             star.update();
         }
-        //STERNSCHNUPPEN 
-        //            for (let i: number = 0; i < sternschnuppen.length; i++) {
-        //                let star: Sterne = sternschnuppen[i];
-        //                star.update();
-        //            }
         //TIMEOUT
         window.setTimeout(animate, 30);
     }

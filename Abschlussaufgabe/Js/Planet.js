@@ -10,7 +10,7 @@ var Abschlussaufgabe;
         // Prüft nach ob angeklickter Punkt innerhalb des Planeten ist
         // Wenn True dann ist klick innerhalb des Planeten 
         // Bestimmt Position des aktuellen Planeten und berechnet den Abstand aus und prüft ob der Abstand kleiner ist als der Radius
-        // Vektorrechnung
+        // Vektorrechnung, gibt Funktion die Quadratwurzel einer Zahl zurück 
         hasClick(_x, _y) {
             return Math.sqrt((this.x - _x) * (this.x - _x) + (this.y - _y) * (this.y - _y)) <= this.radius;
         }
